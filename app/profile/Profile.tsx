@@ -8,14 +8,6 @@ import { useRouter } from "next/navigation";
 export default function Page() {
     const router = useRouter();
 
-    const isSession = async () => {
-      const session = await auth.api.getSession({
-        headers: await headers()
-      })
-
-      return session?.user;
-    }
-
     async function handleSignOut() {
         await signOut();
         router.push('/auth')
@@ -30,7 +22,7 @@ export default function Page() {
             </div>
             <div>
               <h1 className="text-2xl font-semibold text-gray-800">
-                Волонтёр {isSession.name}
+                Волонтёр:
               </h1>
               <p className="text-gray-500 text-sm">@magomed</p>
             </div>

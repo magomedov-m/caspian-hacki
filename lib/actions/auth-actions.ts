@@ -14,7 +14,7 @@ export const signInGoogle = async (provider: 'google') => {
     const {url} = await auth.api.signInSocial({
         body: {
             provider,
-            callbackURL: '/profile'
+            callbackURL: 'http://localhost:3000/api/auth/callback/google'
         }
     })
 
