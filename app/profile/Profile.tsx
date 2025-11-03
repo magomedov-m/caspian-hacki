@@ -1,10 +1,20 @@
 'use client'
 import { signOut } from "@/lib/actions/auth-actions";
+import { auth } from "@/lib/auth";
 import { Button } from "@mui/material";
+import { headers } from "next/headers";
 import { useRouter } from "next/navigation";
 
 export default function Page() {
     const router = useRouter();
+
+    const isSession = async () => {
+      const session = await auth.api.getSession({
+        headers: await headers()
+      })
+
+      return session?.user;
+    }
 
     async function handleSignOut() {
         await signOut();
@@ -20,7 +30,7 @@ export default function Page() {
             </div>
             <div>
               <h1 className="text-2xl font-semibold text-gray-800">
-                Волонтёр Магомед
+                Волонтёр {isSession.name}
               </h1>
               <p className="text-gray-500 text-sm">@magomed</p>
             </div>

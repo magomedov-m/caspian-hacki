@@ -16,7 +16,6 @@ export default function Header({session}: {session: Session | null}) {
         <Link href="/" className="flex text-xl font-semibold text-blue-700">
           🌊 <h2 color="blue" className="ml-3">WALLEE</h2>
         </Link>
-
         <div className="flex items-center gap-3">
           <Link href="/add">
           </Link>

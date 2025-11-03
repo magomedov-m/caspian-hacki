@@ -1,7 +1,10 @@
 import OpenAI from "openai";
 import { NextResponse } from "next/server";
 
-// ТУТ ДОЛЖЕН БЫТЬ КОД С КЛЮЧОМ И URL
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY!,
+  baseURL: process.env.OPENAI_API_URL
+})
 
 export async function POST(req: Request) {
   try {

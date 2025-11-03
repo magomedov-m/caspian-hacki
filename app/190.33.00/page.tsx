@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Select, MenuItem } from "@mui/material";
+import { Select, MenuItem, Button } from "@mui/material";
 
 interface Report {
   id: number;
@@ -327,17 +327,16 @@ const sendMessage = async () => {
 
   return (
     <main className="min-h-screen bg-gray-50 flex flex-col md:flex-row">
-      <aside className="w-full md:w-64 bg-white border-r shadow-sm p-6 flex flex-col gap-6">
-        <div className="text-2xl font-bold text-blue-600">Админ Панель</div>
+      <aside className="w-full md:w-64 bg-white border-r shadow-sm p-6 flex flex-col gap-6 mt-12">
         <nav className="flex flex-col gap-3 text-gray-700">
           <button onClick={() => setActiveSection("home")} className="text-left hover:text-blue-600">🏠 Главная</button>
           <button onClick={() => setActiveSection("reports")} className="text-left hover:text-blue-600">📍 Все метки</button>
           <button onClick={() => setActiveSection("users")} className="text-left hover:text-blue-600">👥 Волонтеры</button>
           <button onClick={() => setActiveSection("stats")} className="text-left hover:text-blue-600">📊 ИИ Статистика</button>
         </nav>
-        <Link href='/'><button className="mt-auto bg-blue-600 text-white rounded-lg py-2 hover:bg-blue-700 transition">
-          Выйти
-        </button></Link>
+        <Link href='/'><Button variant="outlined" className="mt-auto bg-blue-600 text-white rounded-lg py-2 hover:bg-blue-700 transition">
+          На главную
+        </Button></Link>
       </aside>
 
       <section className="flex-1 p-6 sm:p-8 flex flex-col gap-6">
